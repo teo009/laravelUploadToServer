@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Users;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -18,7 +19,6 @@ class UsersController extends Controller
                     ->orderBy('users.id','DESC')
                     ->get();
         return view('users/index')->with('usuarios', $usuarios);
-        //console.log($usuarios);
     }
 
     /**
@@ -84,6 +84,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Users::destroy($id);
+        return redirect('users');
     }
 }

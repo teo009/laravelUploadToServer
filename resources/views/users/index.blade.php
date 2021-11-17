@@ -20,12 +20,26 @@
                             <td>{{ $usuario->name }}</td>
                             <td>{{ $usuario->email }}</td>
                             <td>
-                                <button class="btn btn-danger"> 
+                                <button class="btn btn-secondary"> 
                                     <i class="fa fa-trash"></i> 
                                 </button>
-                                <form action="/usuarios"></form>
+                                |
+                                <form 
+                                    action="{{url('/users/'.$usuario->id)}}"
+                                    method="POST"
+                                    class="d-inline"
+                                >
+                                    @csrf
+                                    {{method_field('DELETE')}}
+                                    <button 
+                                        type="submit" 
+                                        onclick="return confirm('¿Estas seguro?')"
+                                        value="delete"
+                                        class="btn btn-danger"
+                                    >
+                                    </button>
+                                </form>
                             </td>
-                            
                         </tr>
                     @endforeach
                 </tbody>
