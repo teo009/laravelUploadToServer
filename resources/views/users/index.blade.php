@@ -13,18 +13,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        @foreach ($usuarios as $usuario)
-                        <td>{{ $usuario->id }}</td>
-                        <td>{{ $usuario->name }}</td>
-                        <td>{{ $usuario->email }}</td>
-                        <td>
-                            <button class="btn btn-danger"> 
-                                <i class="fa fa-trash"></i> 
-                            </button>
-                        </td>
-                        @endforeach
-                    </tr>
+                    @foreach ($usuarios as $usuario)
+                        <tr>
+                            
+                            <td>{{ $usuario->id }}</td>
+                            <td>{{ $usuario->name }}</td>
+                            <td>{{ $usuario->email }}</td>
+                            <td>
+                                <button class="btn btn-danger"> 
+                                    <i class="fa fa-trash"></i> 
+                                </button>
+                            </td>
+                            
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
