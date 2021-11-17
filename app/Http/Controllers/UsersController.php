@@ -13,7 +13,12 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $usuarios = \DB::table('users')
+                    ->select('users.*')
+                    ->orderBy('users.id','DESC')
+                    ->get();
+        return view('users/index')->with('usuarios', $usuarios);
+        //console.log($usuarios);
     }
 
     /**
