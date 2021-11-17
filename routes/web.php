@@ -17,8 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\UsersController::class, 'index'])->name('home');
+Auth::routes(['register'=>true, 'reset'=>true]);
 
-//Auth::routes();
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [
+    App\Http\Controllers\UsersController::class, 'index'
+])->name('home');
+
+Route::resource(
+    'users', App\Http\Controllers\UsersController::class
+);
