@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes(['register'=>true, 'reset'=>true]);
@@ -25,4 +25,4 @@ Route::get('/home', [
 
 Route::resource(
     'users', App\Http\Controllers\UsersController::class
-);
+)->middleware('auth');
