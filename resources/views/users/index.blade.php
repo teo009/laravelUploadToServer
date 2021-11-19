@@ -26,9 +26,11 @@
                                     action="{{url('/users/'.$usuario->id)}}"
                                     method="POST"
                                     class="d-inline"
+                                    id="formDelete_{{$usuario->id}}"
                                 >
                                     @csrf
                                     {{method_field('DELETE')}}
+                                    <input type="text" name="id" value="{{$usuario->id}}">
                                     <button 
                                         onclick="return confirm()"
                                         value="delete"
